@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+<article>
+    <div class="date">{{ article.locale_date }}</div>
+    <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+
+    {{ article.content }}
+
+</article>
+
+{% endblock %}

@@ -1,0 +1,232 @@
+@import "_base.scss";
+
+// Reset / Normalize
+@import "normalize.scss";
+
+
+body {
+  background-color: #efefef;
+  //border-top: $base-line-height / 3 solid $color;
+  color: $color;
+  font-family: $font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  padding-top: 3 * $base-line-height;
+}
+
+header {
+  //background-color: #f6f6f6;
+  margin-bottom: 1 * $base-line-height;
+  padding: $base-line-height 0 0;
+  //border-bottom: 1px solid #f0f0f0;
+  position: fixed;
+  width:  75%;
+  max-width: 40em;
+  top: 0;
+
+  h1,
+  h1 a {
+    text-align: center;
+    //margin-left: 10%;
+    width: 100%;
+    color: #555;
+    @include text-shadow(#fcfcfc 0 1px);
+    font-weight: normal;
+    border: none;
+
+    &:hover {
+      background-color: transparent;
+      color: #888;
+    }
+  }
+}
+
+.container {
+  margin:  0 auto;
+  background-color: #efefef;
+  //border:  1px solid #e3e3e3;
+  //@include border-radius(2px);
+  max-width: 40em;
+  width: 75%;
+}
+
+article {
+  background-color: $body-background;
+  border:  1px solid #e3e3e3;
+  margin: 2 * $base-line-height auto;
+  width: 80%;
+  padding:  6% 10% 10%;
+  // max-width: $max-line-length;
+  padding-bottom: 2 * $base-line-height;
+  position: relative;
+  margin-bottom: 2 * $base-line-height;
+  text-align: left;
+  text-align-last: left;
+  -moz-hyphens: auto;
+  -o-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -hyphens: auto;
+
+
+  .date {
+    display: block;
+    font-size: 0.9 * $base-font-size;
+    color: #aaa;
+    font-weight: normal;
+    text-align: center;
+    //font-style: italic;
+  }
+
+  h1 {
+    font-size: 1.75 * $base-font-size;
+    line-height: 1.25 * $base-line-height;
+    padding-bottom: $base-line-height;
+    margin-bottom: $base-line-height;
+    margin-top: 0.4em;
+    position: relative;
+    text-align: center;
+    -moz-hyphens: none;
+    -o-hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    -hyphens: none;
+
+    a {
+      border: none;
+    }
+
+    &:after {
+      left: 25%;
+      content: '';
+      width: 50%;
+      height: 1px;
+      display: block;
+      background-color: $color;
+      position: absolute;
+      bottom: 0px;
+    }
+  }
+
+  img {
+    margin-top: 0.6em;
+    width: 100%;
+  }
+
+  .permalink {
+    display: inline-block;
+    //font-size: 1.5 * $base-font-size;
+    font-weight: bold;
+    float: right;
+    position: relative;
+    top: 7px;
+
+    /*&:before,
+    &:after {
+      font-size: $base-font-size;
+      display: inline-block;
+      position: absolute;
+      top: -2px;
+    }
+    &:before {
+      content: '{';
+      left:  -10px;
+    }
+    &:after {
+      content: '}';
+      right:  -10px;
+    }*/
+  }
+  .eoa {
+    font-size: 1 * $base-font-size;
+    //color: #777;
+  }
+}
+
+blockquote {
+  position: relative;
+  z-index: 100;
+}
+blockquote:before {
+  content: '„';
+  position: absolute;
+  font-size: 3 * $base-font-size;
+  color: lighten($color, 10%);
+  left: -30px;
+  top:  -12px;
+  z-index: 4;
+}
+
+a {
+  color: $color;
+  text-decoration: none;
+  border-bottom: 1px solid lighten($color, 10%);
+
+  &:hover{
+    background-color: $darker-background;
+    border-color: darken($color, 10%);
+  }
+}
+
+ol {
+  margin: 0.8em 0;
+  padding: 0;
+  list-style-position: outside;
+}
+
+ol ol {
+  list-style-position: inside;
+  padding-left: 1em;
+}
+
+ul {
+  padding-left: 1em;
+  list-style-position: inside;
+  margin: 0;
+}
+
+table {
+  width: 100%;
+}
+
+p {
+  -moz-hyphens: auto;
+  -o-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -hyphens: auto;
+  margin: 0;
+}
+p + p {
+  text-indent: 1em;
+}
+
+pre, code {
+  font-family: "Source Code Pro";
+  font-size: 14px;
+  line-height: 20px;
+}
+
+table {
+  margin-bottom: $base-line-height;
+  margin-top: 0.5 * $base-line-height;
+  font-size: 0.9 * $base-font-size;
+  th, td {
+    padding: 2px 6px;
+  }
+  th {
+    border-bottom: 1px solid #ccc;
+  }
+  td {
+    border-right:  1px dashed #ccc;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+  tbody {
+    tr:nth-child(odd) {
+      background-color: #f0f0f0;
+    }
+  }
+}
