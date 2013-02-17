@@ -3,16 +3,36 @@
 
     {% if articles %}
     {% for article in articles_page.object_list %}
+        {% if loop.index < 5 %}
+            <article>
+                <div class="date">{{ article.locale_date }}</div>
+                <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
 
-        <article>
-            <div class="date">{{ article.locale_date }}</div>
-            <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+                {{ article.content }}
 
-            {{ article.content }}
-
-        </article>
-
+            </article>
+        {% endif %}
     {% endfor %}
     {% endif %}
+
+<article>
+    <h1>Archiv</h1>
+
+    {% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}
+    <div class="year-container">
+        <div class="year" id="{{ year }}">{{ year }}</div>
+        {% for month, articles in date_year|groupby( 'date.month')|sort(reverse=True) %}
+        <div class="month-container">
+            <div class="month">{{ articles[ 0 ].date.strftime( '%B' ) }}</div>
+            <ul class="list-of-articles">
+                {% for article in articles %}
+                <li><a href="/{{ article.url }}">{{ article.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</article>
 
 {% endblock %}

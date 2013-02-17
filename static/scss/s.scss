@@ -16,13 +16,14 @@ body {
 
 header {
   //background-color: #f6f6f6;
-  margin-bottom: 1 * $base-line-height;
+  margin: 0 auto 1*$base-line-height;
   padding: $base-line-height 0 0;
   //border-bottom: 1px solid #f0f0f0;
   position: fixed;
   width:  75%;
   max-width: 40em;
   top: 0;
+  z-index: 1;
 
   h1,
   h1 a {
@@ -47,6 +48,8 @@ header {
   //border:  1px solid #e3e3e3;
   //@include border-radius(2px);
   max-width: 40em;
+  position: relative;
+  z-index: 3;
   width: 75%;
 }
 
@@ -140,6 +143,47 @@ article {
   .eoa {
     font-size: 1 * $base-font-size;
     //color: #777;
+  }
+}
+
+.year-container {
+  @include clearfix;
+  clear: both;
+  margin-bottom: 0.5 * $base-line-height;
+  .year,
+  .month {
+    float: left;
+    margin: 0;
+  }
+  .year {
+    font-weight: bold;
+    text-align: left;
+    width:  50px;
+  }
+}
+.month-container {
+  clear: right;
+  float: right;
+  width: 570px;
+  margin-bottom: 0.5 * $base-line-height;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .month {
+    width: 100px;
+  }
+  .list-of-articles {
+    float: right;
+    list-style-type: none;
+    padding: 0;
+    width:  450px;
+    li {
+      //float: right;
+      margin-left: 1em;
+      text-indent: -1em;
+    }
   }
 }
 
